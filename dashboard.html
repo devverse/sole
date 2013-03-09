@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+		<title>[Restock Alert]</title>
+
+		<link rel="stylesheet" href="assets/jquerymobile1.3/jquery.mobile-1.3.0-beta.1.min.css" />
+		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
+	</head>
+	<body>
+
+	<div id="dashboard" data-role="page" data-add-back-btn="true" data-theme="b">
+
+		<div data-role="header" data-theme="a" >
+			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
+			<h1>Dashboard</h1>
+		</div>
+
+		<div data-role="content">
+			<ul data-role="listview" data-theme="a" id="" data-inset="true">
+				<li><a href="dashboard.html#releasespg" rel="external" data-transition="slide"> Upcoming Releases</a></li>
+				<li><a href="dashboard.html#productcheckspg" rel="external" data-transition="slide"> Restock Watcher</a></li>
+				<li><a href="dashboard.html#newspg" rel="external" data-transition="slide"> News</a></li>
+				<li><a href="dashboard.html#productcheckspg" rel="external" data-transition="slide"> Restock Availability History</a></li>
+				<li><a href="dashboard.html#productcheckspg" rel="external" data-transition="slide"> My Alerts</a></li>
+
+			</ul>
+		</div>
+  	</div>
+
+  	<!-- Products page-->
+	<div id="productcheckspg" data-role="page" data-add-back-btn="true" data-theme="b">
+
+		<div data-role="header" data-theme="a" >
+			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
+			<h1>Restock Alert</h1>
+		</div>
+
+		<div data-role="content">
+
+			<div data-role="popup" id="productChecksPopup">
+				<p>You will be notified as soon as the shoe becomes available online again.<p>
+			</div>
+
+			<span id="productChecks" style="width:80%;">
+
+			</span>
+		</div>
+	</div>
+	<!-- Products page-->
+
+	<!-- Releases page-->
+	<div id="releasespg" data-role="page" data-add-back-btn="true" data-theme="b">
+
+		<div data-role="header" data-theme="a" >
+			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
+			<h1>Upcoming Releases</h1>
+		</div>
+
+		<div data-role="content">
+
+			<div data-role="popup" id="releasesPopup">
+				<p>You will be notified two hours before the shoe drops on release day.<p>
+			</div>
+
+			<span id="releases" style="width:80%;">
+
+			</span>
+		</div>
+  	</div>
+  	<!-- Releases page-->
+
+  	<!-- Availability page-->
+  	<div id="newspg" data-role="page" data-add-back-btn="true" data-theme="b">
+
+		<div data-role="header" data-theme="a" >
+			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
+			<h1>News</h1>
+		</div>
+
+
+		<div data-role="content">
+			<span id="news" style="width:80%;">
+
+			</span>
+
+		</div>
+  	</div>
+  	<!-- Availability page-->
+
+
+
+<!-- Templates -->
+
+<script id="releasesTemplate" type="text/x-jquery-tmpl">
+	<div data-role="collapsible" data-collapsed="true" data-theme="a">
+
+	<p>
+	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> <span class='date'>${release_date}</span><br/>
+	<img src="http://192.168.1.2/restock/site/public/products/${image}">
+	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addReleaseAlert button'>Alert me</button><br/><br/>
+	</p>
+	</div>
+</script>
+
+<script id="productsTemplate" type="text/x-jquery-tmpl">
+	<p>
+	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> 
+	<img src="http://192.168.1.2/restock/site/public/products/${image}">
+	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addRestockAlert button'  >Alert me</button><br/><br/>
+	</p>
+</script>
+
+<script id="newsTemplate" type="text/x-jquery-tmpl">
+	<p>
+	${title} <br/> {{html thumbnail}} <br/>
+	</p>
+</script>
+
+<!-- Templates -->
+
+
+
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.min.js"></script>
+<script src="assets/js/jquery.tmpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/config.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
+<script>
+</script>
+</body>
+</html>
