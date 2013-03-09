@@ -9,13 +9,14 @@ $('#productcheckspg').live('pageshow', function(event) {
 	getProducts();
 });
 
-$('#availabilitypg').live('pageshow', function(event) {
+$('#availabilityhistorypg').live('pageshow', function(event) {
     getAvailabilityHistory();
 });
 
 $('#newspg').live('pageshow', function(event) {
     getNewsFeed();
 });
+
 
 $("#createAccountBtn").live('click',function(event){
     var username = $(".createusername").val();
@@ -79,8 +80,11 @@ function getReleases(){
   function createAccount(username,password){
     var data = {
         'username' : username,
-        'password' : password
+        'password' : password,
+        'phone' : $(".phone").val(),
+        'carrier' : $(".carrier option:selected").val()
     };
+
 
     var member_id = makePost("createAccount",data);
 
@@ -121,6 +125,11 @@ function getReleases(){
     makePost("addRestockAlert",data);
   }
 
+  function getAvailabilityHistory(){
+     var history = makePost("getAvailabilityHistory",'');
+      $( "#availhistorytemplate" ).tmpl( history ).appendTo("#availhistory");
+      console.log(history);
+  }
 
 
 
