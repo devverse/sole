@@ -46,8 +46,10 @@ background: #eee !important;
 }
 
 #createAccountpg {
- background: transparent url(../img/jordan4.jpg) !important;
+ background: transparent url(../img/jordan7.jpg) !important;
   color:black;
+
+  color:white !important;
 }
 
 #dashboard {
