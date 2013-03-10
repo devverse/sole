@@ -3,21 +3,21 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	versionCode="10"
-	version 	= "1.6.7"
-	id        = "com.tweency">
+	version 	= "1.1"
+	id        = "com.sole.insider">
 
 	<preference name="phonegap-version" value="2.3.0" />
 	<preference name="fullscreen" value="false" />
 
-	<name>Tweency Mobile</name>
+	<name>Sole Insider</name>
 
 	<description>
-		Tweency.com on your mobile device
+		Sole Insider, Sneaker release dates and availability history
 	</description>
 
-	<author href="http://Tweency.com"
-		email="support@Tweency.com">
-		Tweency Mobile
+	<author href="devverse@gmail.com"
+		email="devverse@gmail.com">
+		Sole Insider
 	</author>
 
 	<gap:platforms>
@@ -27,9 +27,9 @@
 		<gap:platform name="blackberry" project="widgets"/>
 	</gap:platforms>
 
-	<icon src="icon.png" width="72" height="72" />
-	<icon src="icon.png" width="48" height="48" />
-	<icon src="icon.png" width="36" height="36"  gap:role="default"  />
+	<icon src="icon.jpg" width="72" height="72" />
+	<icon src="icon.jpg" width="48" height="48" />
+	<icon src="icon.jpg" width="36" height="36"  gap:role="default"  />
 
     <gap:splash src="splash.jpg" />
 
