@@ -12,14 +12,13 @@
 	<div id="dashboard" data-role="page" data-add-back-btn="true" data-theme="b">
 
 		<div data-role="header" data-theme="a" >
-			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
 			<h1>Sole Insider</h1>
 		</div>
 
 		<div data-role="content">
 			<ul data-role="listview" data-theme="a" id="" data-inset="true">
 				<li><a href="dashboard.html#releasespg" rel="external" data-transition="slide"> Upcoming Releases</a></li>
-				<li><a href="dashboard.html#productcheckspg" rel="external" data-transition="slide"> Restock Watcher</a></li>
+				<li><a href="dashboard.html#productcheckspg" rel="external" data-transition="slide"> Restock Notifier</a></li>
 				<li><a href="dashboard.html#availabilityhistorypg" rel="external" data-transition="slide"> Restock Availability History</a></li>
 			</ul>
 		</div>
@@ -30,11 +29,11 @@
 
 		<div data-role="header" data-theme="a" >
 			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
-			<h1>Sole Insider</h1>
+			<h1>Restock Notifier</h1>
 		</div>
 
 		<div data-role="content">
-
+			<h4> Our bots scan a select few websites for restocks every few minutes. As soon as we find a shoe that has become available, we send you a text message and an email with a link to go buy.</h4>
 			<div data-role="popup" id="productChecksPopup">
 				<p>You will be notified as soon as the shoe becomes available online again.<p>
 			</div>
@@ -56,10 +55,8 @@
 
 		<div data-role="content">
 
-			<div data-role="popup" id="releasesPopup">
-				<p>You will be notified two hours before the shoe drops on release day.<p>
-			</div>
-
+			<h4> Use 'Send me a reminder', and we'll send you a reminder email and text message two hours before the shoes drop on release day .</h4>
+			<hr/>
 			<span id="releases" style="width:80%;">
 
 			</span>
@@ -115,7 +112,7 @@
 	<p>
 	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> <span class='date'>${release_date}</span><br/>
 	<img src="http://soleinsider.com/public/products/${image}">
-	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addReleaseAlert button'>Alert me</button><br/><br/>
+	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addReleaseAlert button'>Send me a reminder</button><br/><br/>
 	</p>
 	</div>
 </script>
@@ -124,7 +121,7 @@
 	<p>
 	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> 
 	<img src="http://soleinsider.com/public/products/${image}">
-	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addRestockAlert button'  >Alert me</button><br/><br/>
+	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addRestockAlert button' > Notify me when available</button><br/><br/>
 	</p>
 </script>
 
