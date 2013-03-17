@@ -31,7 +31,7 @@
 	<icon src="icon.jpg" width="48" height="48" />
 	<icon src="icon.jpg" width="36" height="36"  gap:role="default"  />
 
-    <gap:splash src="splash.jpg" />
+    <gap:splash src="splash2.jpg" />
 
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/network"/>

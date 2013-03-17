@@ -41,19 +41,17 @@ background: #eee !important;
 }
 
 #loginPage  {
- background: transparent url(../img/jordan.jpg) !important;
+ background: transparent url(../img/jordan4.jpg) !important;
   color:black;
 }
 
 #createAccountpg {
- background: transparent url(../img/jordan7.jpg) !important;
-  color:black;
-
-  color:white !important;
+ background: transparent url(../img/jordan5.jpg) !important;
+  color:#FFF;
 }
 
 #dashboard {
- background: transparent url(../img/jordan2.jpg) !important;
+ background: transparent url(../img/jordan1.jpg) !important;
   color:black;	
 }
 
