@@ -110,7 +110,6 @@ function getReleases(){
         'member_id' : member_id
     };
 
-   // $( '#releasesPopup' ).popup('open');
    alert('You will be notified two hours before the shoe drops on release day.');
     makePost("addReleaseAlert",data);
   }
@@ -120,8 +119,8 @@ function getReleases(){
         'product_id' : product_id,
         'member_id' : member_id
     };
-
-    $( '#productChecksPopup' ).popup('open');
+    
+    alert('You will be notified as soon as the shoe becomes available online again.');
     makePost("addRestockAlert",data);
   }
 
@@ -131,9 +130,7 @@ function getReleases(){
       console.log(history);
   }
 
-
-
-function getUrlVars() {
+  function getUrlVars() {
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
     for(var i = 0; i < hashes.length; i++)
@@ -143,4 +140,4 @@ function getUrlVars() {
         vars[hash[0]] = hash[1];
     }
     return vars;
-}
+ }

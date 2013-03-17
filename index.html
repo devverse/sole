@@ -48,7 +48,7 @@
 	 <div data-role="content" >
 	 	<form id="loginAjaxForm">
 		<h3> Create An account </h3>
-		<p> Your username <input type="text" class="createusername" value=""></p>
+		<p> Your Email Address <input type="text" class="createusername" value=""></p>
 		<p> Your cellphone (Used for text alerts) <input type="text" class="phone" value=""></p>
 		<p> Carriers <select class="carrier">
 			<option value="1"> AT&T </option>
@@ -80,6 +80,9 @@
 <script type="text/javascript" src="assets/js/config.js" charset="utf-8"></script>
 <script type="text/javascript" src="assets/js/app.js" charset="utf-8"></script>
 <script>
+
+
+activeSession();
 
 $("#loginBtn").click(function(e){
         e.preventDefault();
