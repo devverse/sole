@@ -1,5 +1,16 @@
 var member_id = localStorage.getItem('member_id');
 
+function loginCheck(){
+  var member_id = localStorage.getItem('member_id');
+  var username  = localStorage.getItem('username');
+
+  if ( member_id == null ||  username == null || member_id === 'undefined' || username === 'undefined'){
+    window.location.href = "index.html";
+  }
+
+}
+
+loginCheck();
 
 $('#releasespg').live('pageshow', function(event) {
 	getReleases();
