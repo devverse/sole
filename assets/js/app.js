@@ -7,20 +7,20 @@ function loginCheck(){
   if ( member_id == null ||  username == null || member_id === 'undefined' || username === 'undefined'){
     window.location.href = "index.html";
   }
-
 }
 
-loginCheck();
-
 $('#releasespg').live('pageshow', function(event) {
+  loginCheck();
 	getReleases();
 });
 
 $('#productcheckspg').live('pageshow', function(event) {
+  loginCheck();
 	getProducts();
 });
 
 $('#availabilityhistorypg').live('pageshow', function(event) {
+    loginCheck();
     getAvailabilityHistory();
 });
 
