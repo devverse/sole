@@ -18,8 +18,11 @@
 		<div data-role="content">
 			<ul data-role="listview" data-theme="a" id="" data-inset="true">
 				<li><a href="dashboard.html#releasespg" rel="external" data-transition="slide"> Upcoming Releases</a></li>
-				<li><a href="dashboard.html#productcheckspg" rel="external" data-transition="slide"> Restock Notifier</a></li>
+				<li><a href="dashboard.html#pastreleasespg" rel="external" data-transition="slide"> Past Releases</a></li>
+				<li><a href="dashboard.html#productcheckspg" rel="external" data-transition="slide"> Restocks</a></li>
 				<li><a href="dashboard.html#availabilityhistorypg" rel="external" data-transition="slide"> Restock Availability History</a></li>
+				<li><a href="dashboard.html#stillavailpage" rel="external" data-transition="slide"> Still Available</a></li>
+				<!-- <li><a href="account.html" rel="external" data-transition="slide"> My Account</a></li> -->
 			</ul>
 		</div>
   	</div>
@@ -61,6 +64,29 @@
   	</div>
   	<!-- Releases page-->
 
+  	<!-- Past Releases page-->
+	<div id="pastreleasespg" data-role="page" data-add-back-btn="true" data-theme="b">
+
+		<div data-role="header" data-theme="a" >
+			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
+			<h1>Past Releases</h1>
+		</div>
+
+		<div data-role="content">
+
+			<h4> Past releases that have dropped recently</h4>
+			<hr/>
+			<span id="pastreleases" style="width:80%;">
+
+			</span>
+		</div>
+  	</div>
+  	<!-- Past Releases page-->
+
+
+
+  	
+
   	<!-- Availability page-->
   	<div id="newspg" data-role="page" data-add-back-btn="true" data-theme="b">
 
@@ -97,11 +123,53 @@
   	</div>
   	<!-- Availability history page-->
 
+
+  	<!-- Availabile products page-->
+  	<div id="stillavailpage" data-role="page" data-add-back-btn="true" data-theme="b">
+
+		<div data-role="header" data-theme="a" >
+			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
+			<h1>Sneakers still available</h1>
+		</div>
+
+
+		<div data-role="content">
+			<span id="stillavail" style="width:80%;">
+
+			</span>
+
+		</div>
+  	</div>
+  	<!-- Availabile products page-->
+
+
   	
 
 
 
 <!-- Templates -->
+
+
+<script id="stillAvailTemplate" type="text/x-jquery-tmpl">
+	<div data-role="collapsible" data-collapsed="true" data-theme="a">
+	<p>
+	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> 
+	<img src="http://soleinsider.com/public/products/${image}">
+	<button data-product-id='${product_id}' data-role="button" data-icon="star" class='sendLinkToPurchase button'>Send me link to purchase</button><br/><br/>
+	</p>
+	</div>
+</script>
+
+
+<script id="pastreleasesTemplate" type="text/x-jquery-tmpl">
+	<div data-role="collapsible" data-collapsed="true" data-theme="a">
+
+	<p>
+	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> <span class='date'>${release_date}</span><br/>
+	<img src="http://soleinsider.com/public/products/${image}">
+	</p>
+	</div>
+</script>
 
 <script id="releasesTemplate" type="text/x-jquery-tmpl">
 	<div data-role="collapsible" data-collapsed="true" data-theme="a">

@@ -14,6 +14,12 @@ $('#releasespg').live('pageshow', function(event) {
 	getReleases();
 });
 
+$('#pastreleasespg').live('pageshow', function(event) {
+  loginCheck();
+  getPastReleases();
+});
+
+
 $('#productcheckspg').live('pageshow', function(event) {
   loginCheck();
 	getProducts();
@@ -27,6 +33,11 @@ $('#availabilityhistorypg').live('pageshow', function(event) {
 $('#newspg').live('pageshow', function(event) {
     getNewsFeed();
 });
+
+$('#stillavailpage').live('pageshow', function(event) {
+    getStillAvail();
+});
+
 
 
 $("#createAccountBtn").live('click',function(event){
@@ -54,6 +65,13 @@ $('.addRestockAlert').live('click',function(event){
     addRestockAlert(product_id);
 });
 
+$('.sendLinkToPurchase').live('click',function(event){
+    var element = $(event.target);
+    var product_id = element.attr('data-product-id');
+    sendLinkToPurchase(product_id);
+});
+
+
 
 function makePost(endPoint,formData){
 
@@ -73,12 +91,22 @@ function makePost(endPoint,formData){
   return results;
 }
 
+
+function getStillAvail(){
+    var releases = makePost("getStillAvail",'');
+    $( "#stillAvailTemplate" ).tmpl( releases ).appendTo("#stillavail");
+     $(".button").button();
+}
+
+function getPastReleases(){
+     var releases = makePost("pastReleaseDates",'');
+     $( "#pastreleasesTemplate" ).tmpl( releases ).appendTo("#pastreleases")
+}
+
 function getReleases(){
 	 var releases = makePost("releaseDates",'');
      $( "#releasesTemplate" ).tmpl( releases ).appendTo("#releases")
-     //$("#releases").trigger("create");
      $(".button").button();
-
   }
 
   function getProducts(){
@@ -123,6 +151,16 @@ function getReleases(){
 
    alert('You will be notified two hours before the shoe drops on release day.');
     makePost("addReleaseAlert",data);
+  }
+
+  function sendLinkToPurchase(product_id){
+    var data = {
+        'product_id' : product_id,
+        'member_id' : member_id
+    };
+    alert('You have been email a link to purchase this item. Please check your spam folder');
+    makePost("sendLinkToPurchase",data);
+
   }
 
    function addRestockAlert(product_id){
