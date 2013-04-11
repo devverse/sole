@@ -30,6 +30,10 @@ $('#availabilityhistorypg').live('pageshow', function(event) {
     getAvailabilityHistory();
 });
 
+$('#salespage').live('pageshow', function(event) {
+    getSales();
+});
+
 $('#newspg').live('pageshow', function(event) {
     getNewsFeed();
 });
@@ -91,11 +95,16 @@ function makePost(endPoint,formData){
   return results;
 }
 
+function getSales(){
+    var releases = makePost("getSales",'');
+    $( "#stillAvailTemplate" ).tmpl( releases ).appendTo("#saleslist");
+    $(".button").button();
+}
 
 function getStillAvail(){
     var releases = makePost("getStillAvail",'');
     $( "#stillAvailTemplate" ).tmpl( releases ).appendTo("#stillavail");
-     $(".button").button();
+    $(".button").button();
 }
 
 function getPastReleases(){
