@@ -34,6 +34,10 @@ $('#salespage').live('pageshow', function(event) {
     getSales();
 });
 
+$('#allsalespage').live('pageshow', function(event) {
+    getallSales();
+});
+
 $('#newspg').live('pageshow', function(event) {
     getNewsFeed();
 });
@@ -93,6 +97,12 @@ function makePost(endPoint,formData){
     });
 
   return results;
+}
+
+function getallSales(){
+   var releases = makePost("getallSales",'');
+    $( "#stillAvailTemplate" ).tmpl( releases ).appendTo("#saleslist");
+    $(".button").button();
 }
 
 function getSales(){
