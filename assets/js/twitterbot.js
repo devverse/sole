@@ -1,12 +1,16 @@
 var member_id = localStorage.getItem('member_id');
 
 function loginCheck(){
+
+  var member_type = localStorage.getItem('member_type');
   var member_id = localStorage.getItem('member_id');
   var username  = localStorage.getItem('username');
 
-  if ( member_id == null ||  username == null || member_id === 'undefined' || username === 'undefined'){
-    window.location.href = "index.html";
+  if ( member_id == null ||  member_type == 'guest' || username == null || member_id === 'undefined' || username === 'undefined'){
+     $(".hideBtn").remove();
+
   }
+
 }
 
 $('#twitterpg').live('pageshow', function(event) {
@@ -18,6 +22,24 @@ $('.addToWatchList').live('click',function(event){
     var element = $(event.target);
     var twitter_id = element.attr('data-twitter-id');
     addToWatchList(twitter_id);
+});
+
+$('.watchBtn').live('click',function(event){
+
+    var twitter_ids = [];
+    $('input[type=checkbox]').each(function () {
+           if (this.checked) {
+              twitter_ids.push($(this).val());
+           }
+    });
+
+    var data = {
+        'twitter_ids' : twitter_ids,
+        'member_id' : member_id
+    };
+
+    makePost("twitterWatch",data);
+
 });
 
 
@@ -44,15 +66,17 @@ function addToWatchList(twitter_id){
 }
 
 function getTwitterFeeds(){
-   var releases = makePost("getTwitterFeeds",'');
-    $( "#twitterTemplate" ).tmpl( releases ).appendTo("#twitterlist");
-    $(".button").button();
+    var feeds = makePost("getTwitterFeeds",'');
+    $( "#twitterTemplate" ).tmpl( feeds ).appendTo("#twitterlist");
+    loginCheck();
+    //$(".button").button();
+
 }
 
 function getMyTwitterFeeds(){
     var releases = makePost("getMyTwitterFeeds",'');
-    $( "#myTwitterTemplate" ).tmpl( releases ).appendTo("#mytwitterlist");
-    $(".button").button();
+    //$( "#myTwitterTemplate" ).tmpl( releases ).appendTo("#mytwitterlist");
+    //$(".button").button();
 }
 
 function getUrlVars() {

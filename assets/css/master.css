@@ -7,24 +7,24 @@ div[data-role="page"] {
 [data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
 
 #content{
-
+font-family: georgia;
 
 }
 
 .price{
 	color:green;
-	font-family: verdana;
+	font-family: georgia;
 	font-weight: bold;
 }
 
 .product_title{
 	margin-bottom: -5px;
-	font-family: verdana;
-	color:steel;
+	font-family: arial;;
+	color: #555 !important;
 }
 
 .date{
-	font-family: verdana;
+	font-family: georgia;
 }
 
 .content{

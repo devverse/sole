@@ -14,13 +14,17 @@
 	<!-- Releases page-->
 	<div id="twitterpg" data-role="page" data-add-back-btn="true" data-theme="b">
 
-		<div data-role="header" data-theme="a" >
+		<div data-role="header" data-theme="c" >
 			<a href="dashboard.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
 			<h1>Twitter Watcher</h1>
 		</div>
 
 		<div data-role="content">
+			Did you miss the massive restock @nikestore posted on their twitter account a few months ago? Have us watch the following twitter accounts for you, we will notify you as soon as they post a new link for a sneaker to purchase
+			<span id="twitterlist" style="width:80%;">
 
+			</span>
+			<button class="watchBtn hideBtn"> Notify me when new sneakers are posted</button>
 		
 		</div>
   	</div>
@@ -28,14 +32,7 @@
 
 
 <script id="twitterTemplate" type="text/x-jquery-tmpl">
-	<div data-role="collapsible" data-collapsed="true" data-theme="a">
-
-	<p>
-	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> <span class='date'>${release_date}</span><br/>
-	<img src="http://soleinsider.com/public/products/${image}">
-	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addReleaseAlert button'>Send me a reminder</button><br/><br/>
-	</p>
-	</div>
+	<p><input type="checkbox" value="${id}" class="twitter_id">  ${twitter_handle}</p>
 </script>
 
 <script type="text/javascript" src="assets/jquery/jquery-1.8.3.min.js"></script>
