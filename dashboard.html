@@ -25,7 +25,8 @@
 				<li><a href="sales.html" rel="external" data-transition="slide"> Sales Top Pics</a></li>
 				<li><a href="allsales.html" rel="external" data-transition="slide"> All Sales</a></li>
 				<li><a href="stillavail.html" rel="external" data-transition="slide"> Still Available</a></li>
-				<li><a href="account.html" rel="external" data-transition="slide"> My Account</a></li> 
+				<li><a href="news.html" rel="external" data-transition="slide"> News </a></li>
+				<li><a href="account.html" rel="external" data-transition="slide" class="hideBtn"> My Account</a></li> 
 			</ul>
 		</div>
   	</div>
@@ -37,5 +38,23 @@
 <script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
 <script src="assets/js/config.js" type="text/javascript" charset="utf-8"></script>
 <script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		  var member_type = localStorage.getItem('member_type');
+		  var member_id = localStorage.getItem('member_id');
+		  var username  = localStorage.getItem('username');
+
+		  if ( member_id == null ||  member_type == 'guest' || username == null || member_id === 'undefined' || username === 'undefined'){
+		     $(".hideBtn").attr('href','login.html');
+		  }
+
+	});
+
+</script>
+
+
 </body>
 </html>

@@ -13,6 +13,7 @@
 <div data-role="page" id="loginPage" >
 
 	<div data-role="header" data-theme="c">
+		<a href="index.html" data-transition="slideup" rel="external" data-transition="slide">Back</a>
 		<h1>Sole Insider</h1>
 
 	</div><!-- /header -->
@@ -82,6 +83,7 @@ function login(){
 			if (data != false){
 				localStorage.setItem('username', data.email);
 				localStorage.setItem('member_id',  data.id);
+				localStorage.setItem('member_type',  'member');
 				window.location.href="dashboard.html";
 
 			} else{

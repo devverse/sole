@@ -20,9 +20,9 @@
 	 <div data-role="content" >
 
 	 <a href="login.html" data-role="button" data-theme=
-		"c">Login / Register</a>
+		"c" rel="external">Login / Register</a>
 		<a href="" id="guestGtn" data-role="button" data-theme=
-		"c">Continue As Guest</a>	<hr/>
+		"c" rel="external">Continue As Guest</a>	<hr/>
 	</div> <!-- /content -->
 
 
@@ -36,10 +36,11 @@
 <script type="text/javascript" src="assets/js/app.js" charset="utf-8"></script>
 <script>
 
-$("#guestGtn").click(function(e){
-       localStorage.setItem("member_type","guest");
+
+$('#guestGtn').live('click', function() {
+    localStorage.setItem("member_type","guest");
        location.href = "dashboard.html";
- });
+});
 
 
 </script>

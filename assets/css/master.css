@@ -40,12 +40,12 @@ font-family: georgia;
 background: #eee !important;
 }
 
-#loginPage  {
+#loginPage_  {
  background: transparent url(../img/jordan4.jpg) !important;
   color:black;
 }
 
-#createAccountpg {
+#createAccountpg_ {
  background: transparent url(../img/jordan5.jpg) !important;
   color:#FFF;
 }
