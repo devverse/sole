@@ -40,8 +40,8 @@ font-family: georgia;
 background: #eee !important;
 }
 
-#loginPage_  {
- background: transparent url(../img/jordan4.jpg) !important;
+#loginPage,#indexPage  {
+ background: transparent url(../img/jordan5.jpg) !important;
   color:black;
 }
 
