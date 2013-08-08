@@ -12,40 +12,33 @@
 
 
 	<!-- Releases page-->
-	<div id="releasespg" data-role="page" data-add-back-btn="true" data-theme="d" class="ui-responsive-panel">
+	<div id="myreleasespg" data-role="page" data-add-back-btn="true" data-theme="d">
 
 		<div data-role="panel" id="mypanel" class="panelDiv" data-theme="a" data-display="overlay">
-
 		</div>
 
 		<div data-role="header" data-theme="c" >
 			<a href="#mypanel" data-icon=""  data-theme="c">Menu</a>
 			<a href="index.html" data-transition="slideup" rel="external" data-transition="slide">Home</a>
-			<h1>Upcoming Releases</h1>
+			<h1>My Releases</h1>
 		</div>
-
 
 		<div data-role="content">
-			<span  style="width:80%;">
+			<p class="hiddenmessage" style="text-align:center"> Your must be logged in to use this feature </p><br/>
+		
+			<ul id="releases" data-role="listview" data-filter="true">
 
-				<p class="showBtn" style="Text-align:center"> Please login to watch these releases</p>
-				<ul id="releases" data-role="listview" data-filter="true">
-
-				</ul>
-			</span>
+			</ul>
 		</div>
-
-
-
   	</div>
   	<!-- Releases page-->
 
 
 <script id="releasesTemplate" type="text/x-jquery-tmpl">
 	<li data-filtertext="${name}" style="text-align:center">
+	<p>
 	<h2 class='product_title'>${name}</h2> <span class='price'> ($${price}) </span>  <span class='date'>${release_date}</span><br/>
 	<img src="http://soleinsider.com/public/products/${image}">
-	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addReleaseAlert button hideBtn'>Send me a reminder</button>
 	</p>
 	</li>
 	<hr/>

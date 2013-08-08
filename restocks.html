@@ -10,46 +10,37 @@
 	<body>
 
 
-
-	<!-- Releases page-->
-	<div id="releasespg" data-role="page" data-add-back-btn="true" data-theme="d" class="ui-responsive-panel">
+  	<!-- Products page-->
+	<div id="productcheckspg" data-role="page" data-add-back-btn="true" data-theme="d">
 
 		<div data-role="panel" id="mypanel" class="panelDiv" data-theme="a" data-display="overlay">
 
 		</div>
-
+		
 		<div data-role="header" data-theme="c" >
 			<a href="#mypanel" data-icon=""  data-theme="c">Menu</a>
 			<a href="index.html" data-transition="slideup" rel="external" data-transition="slide">Home</a>
-			<h1>Upcoming Releases</h1>
+			<h1>Restocks</h1>
 		</div>
-
 
 		<div data-role="content">
-			<span  style="width:80%;">
-
-				<p class="showBtn" style="Text-align:center"> Please login to watch these releases</p>
-				<ul id="releases" data-role="listview" data-filter="true">
-
-				</ul>
-			</span>
+			<p class="showBtn" style="Text-align:center"> Please login to watch these restocks</p>
+			<ul id="productChecks" data-role="listview" data-filter="true">
+			</ul>
+		
 		</div>
+	</div>
+	<!-- Products page-->
 
-
-
-  	</div>
-  	<!-- Releases page-->
-
-
-<script id="releasesTemplate" type="text/x-jquery-tmpl">
+<script id="productsTemplate" type="text/x-jquery-tmpl">
 	<li data-filtertext="${name}" style="text-align:center">
-	<h2 class='product_title'>${name}</h2> <span class='price'> ($${price}) </span>  <span class='date'>${release_date}</span><br/>
+	<h2 class='product_title'>${name}</h2> <span class='price'>$${price} </span> <br/> 
 	<img src="http://soleinsider.com/public/products/${image}">
-	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addReleaseAlert button hideBtn'>Send me a reminder</button>
-	</p>
+	<br/><button data-product-id='${product_id}' data-role="button" data-icon="star" class='addRestockAlert button hideBtn' > Watch these sneakers</button>
 	</li>
 	<hr/>
 </script>
+
 
 <script type="text/javascript" src="assets/jquery/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="assets/jquery/jquery.mobile-1.3.2.min.js" charset="utf-8"></script>

@@ -9,41 +9,77 @@ function loginCheck(){
 
   if ( member_id == null ||  member_type == 'guest' || username == null || member_id === 'undefined' || username === 'undefined'){
      $(".hideBtn").remove();
+     $(".hiddenmessage").show();
+     $(".showBtn").show();
+     $(".button").button();
+
   }
 }
 
-$('#releasespg').live('pageshow', function(event) {
+$('div[data-role="page"]').on( 'pagebeforeshow',function(event){
+  loadPanel();
+  $(".button").button();
+  
+});
+
+function loadPanel(){
+
+  $('.panelDiv').load('panel.html', function() {  
+  $( "#mypanel" ).trigger( "updatelayout" );
+    //$(".panelList").listview("refresh");
+  });
+}
+
+
+$('#twitterpg').live('pageinit', function(event) {
+  getTwitterFeeds();
+  //getMyTwitterFeeds();
+});
+
+
+$('#myreleasespg').live('pageinit', function(event) {
+  getMyReleases();
+});
+
+$('#myrestockspg').live('pageinit', function(event) {
+  getMyRestocks();
+});
+
+
+$('#releasespg').live('pageinit', function(event) {;
   getReleases();
 });
 
-$('#pastreleasespg').live('pageshow', function(event) {
+
+
+$('#pastreleasespg').live('pageinit', function(event) {
   loginCheck();
   getPastReleases();
 });
 
 
-$('#productcheckspg').live('pageshow', function(event) {
+$('#productcheckspg').live('pageinit', function(event) {
   getProducts();
 });
 
-$('#availabilityhistorypg').live('pageshow', function(event) {
+$('#availabilityhistorypg').live('pageinit', function(event) {
     loginCheck();
     getAvailabilityHistory();
 });
 
-$('#salespage').live('pageshow', function(event) {
+$('#salespage').live('pageinit', function(event) {
     getSales();
 });
 
-$('#allsalespage').live('pageshow', function(event) {
+$('#allsalespage').live('pageinit', function(event) {
     getallSales();
 });
 
-$('#newspg').live('pageshow', function(event) {
+$('#newspg').live('pageinit', function(event) {
     getNewsFeed();
 });
 
-$('#stillavailpage').live('pageshow', function(event) {
+$('#stillavailpage').live('pageinit', function(event) {
     getStillAvail();
 });
 
@@ -91,6 +127,8 @@ $('.sendShopifyLinkToPurchase').live('click',function(event){
 });
 
 
+
+
 function makePost(endPoint,formData){
 
  var results = "";
@@ -108,6 +146,29 @@ function makePost(endPoint,formData){
 
   return results;
 }
+
+
+$('.watchTwitterBtn').live('click',function(event){
+
+
+    var twitter_ids = [];
+    $('input[type=checkbox]').each(function () {
+           if (this.checked) {
+              twitter_ids.push($(this).val());
+           }
+    });
+
+    var data = {
+        'twitter_ids' : twitter_ids,
+        'member_id' : member_id
+    };
+
+    makePost("twitterWatch",data);
+    console.log("here");
+
+});
+
+
 
 function getallSales(){
    var releases = makePost("getallSales",'');
@@ -142,6 +203,34 @@ function getReleases(){
      $(".button").button();
   }
 
+  function getMyReleases(){
+     var data = {
+        'member_id' : member_id
+    };
+
+    var releases = makePost("getMyReleases",data);
+     loginCheck();
+
+     if (releases){
+      $( "#releasesTemplate" ).tmpl( releases ).appendTo("#releases");
+    }
+  }
+
+
+  function getMyRestocks(){
+     var data = {
+        'member_id' : member_id
+    };
+
+    var restocks = makePost("getMyRestocks",data);
+     loginCheck();
+
+     if (restocks){
+       $( "#productsTemplate" ).tmpl( restocks ).appendTo("#productChecks");
+    }
+  }
+
+
   function getProducts(){
      var releases = makePost("productsChecks",'');
      $( "#productsTemplate" ).tmpl( releases ).appendTo("#productChecks");
@@ -167,7 +256,7 @@ function getReleases(){
         localStorage.setItem('username', username);
         localStorage.setItem('member_id',member_id);
         localStorage.setItem('member_type',"member");
-        location.href = 'dashboard.html';
+        location.href = 'index.html';
     }else{
         alert('Your account could be created, please try again');
     }
@@ -223,8 +312,21 @@ function getReleases(){
   function getAvailabilityHistory(){
      var history = makePost("getAvailabilityHistory",'');
       $( "#availhistorytemplate" ).tmpl( history ).appendTo("#availhistory");
-      console.log(history);
   }
+
+  function getTwitterFeeds(){
+    var feeds = makePost("getTwitterFeeds",'');
+    $( "#twitterTemplate" ).tmpl( feeds ).appendTo("#twitterlist");
+    loginCheck();
+    //$(".button").button();
+
+}
+
+function getMyTwitterFeeds(){
+    var releases = makePost("getMyTwitterFeeds",'');
+    //$( "#myTwitterTemplate" ).tmpl( releases ).appendTo("#mytwitterlist");
+    //$(".button").button();
+}
 
   function getUrlVars() {
     var vars = [], hash;
