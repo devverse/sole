@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>    <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js lt-ie9> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+    <head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width" />
+<title>SoleInsider</title>
+
+        
+<!-- Web App Data -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!-- =Web App Data -->
+
+<!-- Favicon -->
+<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!-- =Favicon -->
+
+
+
+    <!-- Import Styles-->
+
+        <link rel='stylesheet' href='css/vendor/normalize.css'>
+        <link rel='stylesheet' href='css/vendor/fontello.css'>
+        <link rel='stylesheet' href='css/style.css'>
+        <link rel='stylesheet' href='css/master.css'>
+
+    <!-- =Import Styles-->
+        
+
+        
+    <!-- Import GoogleWebFonts -->
+
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,700,500' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- =Import GoogleWebFonts -->
+        
+
+        
+    <!-- Modernizr & HTML5 Shiv -->
+
+        <script src='js/vendor/modernizr.js'></script>
+
+        <!--[if lt IE 9]>
+        <script src='js/vendor/html5shiv.js'></script>
+        <![endif]-->
+
+    <!-- =Modernizr & HTML5 Shiv -->
+        
+
+        
+    </head>
+    <body class="touch-gesture">
+
+     
+    <!-- Container -->
+
+        <div id="container" ng-app="soleinsiderApp" ng-controller="storeController">
+        
+
+        <!-- Main Content-->
+
+                    <!-- Sidebar -->
+    
+            <aside id="sidemenu-container">
+                <div id="sidemenu">
+                    <div id="author-profile">
+                        <div class="author-profile-photo">
+                            <img src="icons/icon.png" alt="">
+                        </div>
+                        
+                    </div>
+                    <nav id="nav-container">
+                        <ul class="nav">
+                            <li> <a href="index.html" class> Back to App</a></li>
+                            <li ng-repeat="m in menu"> <a href="#" ng-click="search(m.search)" class> {{m.name}} </a></li>            
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+        <!-- =Sidebar -->
+
+            <section id="content-container">
+
+                  <!-- Header -->
+
+                <header id="header">
+                    <div id="menu-trigger" class="header-button left icon-menu"></div>
+                    <h1><a href="index.html">SoleInsider</a></h1>
+                </header>
+
+            <!-- =Header -->
+
+                <div id="content">
+                        <div class="panel green" style="text-align:Center" ng-cloak>
+                            <p>{{category}}</p>
+                        </div>
+
+
+                        <div class="loading" ng-show="showLoading == true" style="text-align:center">
+                                 <img src="http://cdn.css-tricks.com/wp-content/uploads/2011/02/spinnnnnn.gif" />
+                         </div>
+
+                         <div class="loading" ng-show="showLoading == false" style="text-align:center">
+                            <div ng-repeat="p in products" class="product" ng-cloak>
+
+                                <div class="productImages">
+                                    <img src="{{p.image.sizes.IPhone.url}}" alt="{{p.name}}" class="productImage">
+                                </div>
+
+                                <div class="productDetails">
+                                    <span class="product_title"> {{p.name}} </span> <br/>
+
+                                    <span class="price"> Retailer - {{p.retailer.name}} </span> <br/>
+                                    <span class="price"> {{p.priceLabel}} </span> <br/>
+                                    <br/><a href="{{p.clickUrl}}" class="button blue radius">Details</a>
+                                </div>
+                            </div>
+                         </div>
+                         
+                            <button class=" blue radius" style="margin-left:10px" ng-click="paginate()">Next</button>
+                    
+                </div>
+
+            </section>
+
+        <!-- =Main Content -->
+        
+
+        
+
+        </div>
+    <!-- =Container -->
+        
+
+    
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link'); 
+                    for (var i = 0; i < links.length;i++) { 
+                    var link = links[i]; 
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+
+        
+    <!--jQuery & Google Maps -->
+    
+        <script src="../../../../ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>!window.jQuery && document.write('<script src="js/vendor/jquery.js"><\/script>')</script>
+
+        <!-- Google Maps script -->
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpYpkxGMeJcDfwD5QJMhBZT0No7Jleg-E&amp;sensor=false"></script>
+
+    <!-- =jQuery & Google Maps -->
+
+
+    
+    <!-- Custom Scripts -->
+
+<script src='js/plugins/klass.js'></script>
+<script src='js/plugins/photoswipe.js'></script>
+<script src='js/plugins/hammer.js'></script>
+<script src='js/plugins/flexslider.js'></script>
+<script src='js/plugins/h5validate.js'></script>
+<script src='js/plugins/responsivetables.js'></script>
+<script src='js/plugins/prism.js'></script>
+<script src='js/script.js'></script>
+
+    <!-- =Custom Scripts -->
+<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/config.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+
+
+<script src="app/controllers/store_c.js"></script>
+<script src="app/models/store_service.js"></script>
+<script src="app/models/cache_service.js"></script>
+            
+</body>
+</html>

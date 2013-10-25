@@ -2,8 +2,8 @@
 
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	versionCode="20"
-	version 	= "3.0"
+	versionCode="21"
+	version 	= "4.0"
 	id        = "com.sole.insider">
 
 	<preference name="phonegap-version" value="2.9.0" />
