@@ -2,7 +2,7 @@
 
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	versionCode="22"
+	versionCode="23"
 	version 	= "4.0"
 	id        = "com.sole.insider">
 
@@ -27,9 +27,9 @@
 		<gap:platform name="blackberry" project="widgets"/>
 	</gap:platforms>
 
-	<icon src="icon.jpg" width="72" height="72" />
-	<icon src="icon.jpg" width="48" height="48" />
-	<icon src="icon.jpg" width="36" height="36"  gap:role="default"  />
+	<icon src="icon.png" width="72" height="72" />
+	<icon src="icon.png" width="48" height="48" />
+	<icon src="icon.png" width="36" height="36"  gap:role="default"  />
 
     <gap:splash src="splash.jpg" />
 
