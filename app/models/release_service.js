@@ -26,13 +26,7 @@ soleinsiderApp.factory('release_service', ['util_service','$rootScope', '$q', '$
     };
 
     self.getReleases = function(){
-        return self.makePost('/mobile/releaseDates').then(
-
-        function(data) {
-            $rootScope.$broadcast('getReleases', data);
-        }, function(err) {
-            alert(err);
-        });
+        return self.makePost('/mobile/releaseDatesFormatted');
     };
 
     self.getPastReleases = function(){
@@ -63,8 +57,25 @@ soleinsiderApp.factory('release_service', ['util_service','$rootScope', '$q', '$
             alert(err);
         });
 
+    };
 
-    }
+    self.coporNot = function(data){
+        return self.makePost('/mobile/coporNot',data);
+    };
+
+    self.deleteRelease = function(product){
+
+        member_id = localStorage.getItem("member_id");
+        var data = "product_id=" + product.id;
+            data += "&member_id=" + member_id;
+        return self.makePost('/mobile/deleteRelease',data).then(
+        function(data) {
+            $rootScope.$broadcast('deleteRelease', data);
+        }, function(err) {
+            alert(err);
+        });
+    };
+
 
     return {
 
@@ -86,6 +97,14 @@ soleinsiderApp.factory('release_service', ['util_service','$rootScope', '$q', '$
 
         getMyReleases : function(){
             return self.getMyReleases();
+        },
+
+        coporNot : function(post){
+            return self.coporNot(post);
+        },
+
+        deleteRelease : function(product){
+            return self.deleteRelease(product);
         }
     };
 

@@ -5,9 +5,41 @@ function releasesController($scope, $rootScope, release_service, cache_service)
     $scope.showerror = false;
     $scope.errorMessage = "";
 
+    $scope.coporNot = function(product,status){
+
+
+       var member_id = localStorage.getItem("member_id");
+
+        if (status =="yes" && parseInt(product.yes_percentage) < 98){
+            product.yes_percentage = parseInt(product.yes_percentage) + parseInt(3.2);
+        } 
+
+        if (status =="no" && parseInt(product.no_percentage) < 98){
+             product.no_percentage = parseInt(product.no_percentage) + parseInt(3.2);
+        }
+        var post = "member_id=" + member_id;
+            post += "&product.id=" + product.id;
+            post += "&status=" + status;
+
+        release_service.coporNot(post).then(function (data) {
+            
+        }, function (err) {
+            window.console.log(err);
+        });
+    };
+
 	$scope.getReleases = function(){
         $scope.showLoading = true;
-        $scope.releases  = cache_service.request("releaseDates");
+        release_service.getReleases().then(
+        function(data) {
+            $scope.releases = data;
+            console.log(data);
+        }, function(err) {
+            alert(err);
+        });
+    
+       
+
 	};
 
     $scope.addReminder = function(product){
@@ -37,12 +69,7 @@ function releasesController($scope, $rootScope, release_service, cache_service)
     {	
     	$scope.getReleases();
 
-        // Listeners
-        $rootScope.$on('releaseDates', function(e, data) {
-            $scope.releases = data;
-            $scope.showLoading = false;
-  
-        });
+
 
     })();
 

@@ -1,7 +1,7 @@
-<div ng-repeat="r in sales" class="product">
+<div ng-repeat="r in sales | filter:formatPrice"  class="product">
 
 	<div class="productImages">
-		<img src="http://soleinsider.com/public/products/{{r.image}}"  class="productImage">
+		<img src="{{r.image}}"  class="productImage">
 	</div>
 
 	<div class="productDetails">
