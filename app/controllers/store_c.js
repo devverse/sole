@@ -13,6 +13,10 @@ function storeController($scope, $rootScope, store_service)
     $scope.page = 10;
     $scope.searchStr = "nike";
 
+    $scope.buyProduct = function(product){
+        window.open(product.clickUrl, '_blank', 'location=yes');
+    };
+
     $scope.getMenu = function(){
         store_service.getMenu().then(function (data) {
             data.sort(orderByNameAscending);
@@ -115,8 +119,8 @@ function storeController($scope, $rootScope, store_service)
 
     $scope.init = (function ()
     {
-
         $scope.getMenu();
         $scope.getDefaultItems();
+        $rootScope.$emit("featured", true);
     })();
 }

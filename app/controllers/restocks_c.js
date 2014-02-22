@@ -33,6 +33,7 @@ function restocksController($scope, $rootScope,restock_service,cache_service)
                     $scope.showmsg = true;
                     $scope.success_message = "You are now watching " +product.name;
                     $scope.showerror = false;
+                    $().toastmessage('showSuccessToast',"You are now watching " + product.name);
                 }
             },
             function (err) {
@@ -49,6 +50,8 @@ function restocksController($scope, $rootScope,restock_service,cache_service)
             $scope.restocks = data;
             $scope.showLoading = false;
         });
+        
+        $rootScope.$emit("featured", false);
 
     })();
 

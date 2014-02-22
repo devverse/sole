@@ -17,7 +17,14 @@ function myRestocksController($scope, $rootScope,restock_service)
 	};
 
     $scope.deleteRestock = function(product){
-        restock_service.deleteRestock(product);
+        restock_service.deleteRestock(product).then(
+            function (data) {
+               $().toastmessage('showSuccessToast',"You are no longer watching " + product.name);
+            },
+            function (err) {
+                alert(err);
+            }
+        );
     };
 
     $scope.init = (function ()
@@ -32,7 +39,7 @@ function myRestocksController($scope, $rootScope,restock_service)
          $rootScope.$on('deleteRestock', function(e, data) {
             $scope.getRestocks();
         });
-
+        $rootScope.$emit("featured", false); 
     })();
 
 }
