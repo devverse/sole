@@ -2,29 +2,27 @@
 
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	versionCode="26"
-	version 	= "4.3"
+	versionCode="27"
+	version 	= "4.5"
 	id        = "com.sole.insider">
 
 	<name>Sole Insider Premium</name>
-
 	<description>
-		Sole Insider. Sneaker releases, sneaker restocks. Jordans, Nikes, Pumas, Reebooks, Kicks, Hypebeast
+		SoleInsider. Sneaker releases, sneaker restocks, jordan releases, jordan restocks.Jordans, Aisics, Ronnie Fief, Nikes, Pumas, Reebooks, Kicks, Hypebeast.
 	</description>
 
 	<author href="devverse@gmail.com"
 		email="devverse@gmail.com">
-		Sole Insider
+		SoleInsider
 	</author>
 
 	<gap:platforms>
-		<gap:platform name="android" minVersion="2.2" />
+		<gap:platform name="android" minVersion="2.4" />
 		<gap:platform name="webos" />
 		<gap:platform name="symbian.wrt" />
 		<gap:platform name="blackberry" project="widgets"/>
 	</gap:platforms>
 
-	
 	<!-- Android -->
 	<icon src="icons/android/drawable_ldpi_ic_launcher.png" gap:platform="android" gap:density="ldpi" />
 	<icon src="icons/android/drawable_mdpi_ic_launcher.png" gap:platform="android" gap:density="mdpi" />
@@ -50,18 +48,27 @@
 	<icon src="icons/webos/icon.png" gap:platform="webos" />
 	<icon src="icons/webos/miniicon.png" gap:platform="webos" gap:role="mini" />
 
-    <gap:splash src="splash.jpg" />
+    <gap:splash src="splash/splash.png" />
+	<gap:splash src="splash/res/drawable-mdpi.splash.9.png" gap:platform="android" gap:qualifier="mdpi" />
+	<gap:splash src="splash/res/drawable-hdpi.splash.9.png" gap:platform="android" gap:qualifier="hdpi" />
+	<gap:splash src="splash/res/drawable-xhdpi.splash.9.png" gap:platform="android" gap:qualifier="xhdpi" />
+	<gap:splash src="splash/res/drawable-xxhdpi.splash.9.png" gap:platform="android" gap:qualifier="xxhdpi" />
+
+	<feature name="http://api.phonegap.com/1.0/network"/>
+
 	<!-- General -->
 	<icon src="icons/icon.png" width="72" height="72" />
 	<icon src="icons/icon.png" width="48" height="48" />
 	<icon src="icons/icon.png" width="36" height="36"  gap:role="default"  />
 
-	<preference name="phonegap-version" value="2.9.0" />
+	<preference name="phonegap-version" value="3.6.3" />
 	<preference name="fullscreen" value="false" />
 	<preference name="load-url-timeout" value="60000" />
 
 	<feature name="http://api.phonegap.com/1.0/network"/>
 
-	<plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+	<gap:plugin name="org.apache.cordova.inappbrowser" version="0.2.4" />
+	<gap:plugin name="nl.x-services.plugins.calendar" />
+	<gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.0" />
 
 </widget>

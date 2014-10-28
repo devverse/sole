@@ -1,24 +1,23 @@
-function pastReleasesController($scope, $rootScope, cache_service)
-{
-	$scope.releases = [];
-    $scope.showmsg = false;
-    $scope.showerror = false;
+function pastReleasesController($scope, $rootScope, cache_service) {
 
-	$scope.getPastReleases = function(){
-        $scope.showLoading = true;
-        $scope.releases  = cache_service.request("pastReleaseDates");
-	};
+  $scope.releases = [];
+  $scope.showmsg = false;
+  $scope.showerror = false;
 
-    $scope.init = (function ()
-    {	
-    	$scope.getPastReleases();	
+  $scope.getPastReleases = function() {
+    $scope.showLoading = true;
+    $scope.releases = cache_service.request("pastReleaseDates");
+  };
 
-        $rootScope.$on('pastReleaseDates', function(e, data) {
-            $scope.releases = data;
-            $scope.showLoading = false;
-        });
+  $scope.init = (function() {
+    $scope.getPastReleases();
 
-        $rootScope.$emit("featured", true);
-    })();
+    $rootScope.$on('pastReleaseDates', function(e, data) {
+      $scope.releases = data;
+      $scope.showLoading = false;
+    });
+
+    $rootScope.$emit("featured", true);
+  })();
 
 }
